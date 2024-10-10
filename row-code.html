@@ -23,7 +23,7 @@
             padding-right: 10%;
         }
 
-        .section-wrapper {
+        .section-wrapper-all {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -31,31 +31,31 @@
             height: 100%;
         }
 
-        .slidet-text-content {
+        .slider-content-main-div {
             color: #fff;
             width: 50%;
         }
 
-        .slider-card-wrapper {
+        .lead-slider-card-wrapper {
             width: 50%;
             position: relative;
             overflow: hidden;
         }
 
-        .top-wrapper {
+        .slider-top-subheading {
             font-family: Satoshi;
             font-size: 18px;
             font-weight: 500;
         }
 
-        .slider-title {
+        .slider-main-heading {
             font-family: Satoshi;
             font-size: 44px;
             font-weight: 400;
             line-height: 56px;
         }
 
-        .contentBtn {
+        .slider-main-button {
             background: #C2E812;
             color: #000;
             padding: 14px 24px;
@@ -63,14 +63,14 @@
         }
 
         /* Slider track */
-        .slider-track {
+        .slider-conent-track {
             display: flex;
             gap: 40px;
             transition: transform 0.5s ease-in-out;
             margin-bottom: 20px;
         }
 
-        .case-card {
+        .case-study-card-div {
             width: 425px;
             height: 656px;
             color: #fff;
@@ -83,14 +83,14 @@
             background: linear-gradient(#0000003d, #0000003d), url(https://images.pexels.com/photos/1887624/pexels-photo-1887624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
         }
 
-        .case-card .slider-subheading {
+        .case-study-card-div .slider-box-sub-heading {
             color: #FFF;
             font-family: Satoshi;
             font-size: 16px;
             font-weight: 500;
         }
 
-        .case-card .slider-heading {
+        .case-study-card-div .slider-box-main-heading {
             color: #FFF;
             font-family: Satoshi;
             font-size: 32px;
@@ -99,13 +99,13 @@
             padding-right: 40px;
         }
 
-        .case-card .slider-btn-group {
+        .case-study-card-div .slider-box-btn-group {
             display: inline-flex;
             padding: 5px 12px;
             gap: 10px;
         }
 
-        .case-card .sliderBtn {
+        .case-study-card-div .slider-box-Btn {
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.253);
             color: #EBEBEB;
@@ -115,7 +115,7 @@
             padding: 5px 10px;
         }
 
-        .slider-controler {
+        .slider-bottom-controler-box {
             display: flex;
             justify-content: end;
             gap: 20px;
@@ -148,40 +148,40 @@
             height: 100% !important;
         }
 
-        .slider-track {
+        .slider-conent-track {
             gap: 40px !important;
         
         }
-            .section-wrapper {
+            .section-wrapper-all {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            .slidet-text-content {
+            .slider-content-main-div {
                 width: 100%;
                 text-align: center;
             }
 
-            .slider-title {
+            .slider-main-heading {
                 font-size: 28px;
                 line-height: 40px;
             }
 
-            .slider-card-wrapper {
+            .lead-slider-card-wrapper {
                 width: 100%;
             }
 
-            .case-card {
+            .case-study-card-div {
                 width: 100%;
                 height: 450px;
             }
 
-            .slider-controler {
+            .slider-bottom-controler-box {
                 justify-content: center;
                 margin-right: 0;
             }
 
-            .contentBtn {
+            .slider-main-button {
                 padding: 10px 20px;
             }
         }
@@ -190,54 +190,54 @@
 
 <body>
     <div class="main-content-section">
-        <div class="section-wrapper">
+        <div class="section-wrapper-all">
             <!-- Left section: Text content -->
-            <div class="slidet-text-content">
-                <p class="top-wrapper">My work philosophy</p>
-                <h2 class="slider-title">Creative chaos is <br> encouraged and <br> research is required.</h2>
-                <button class="contentBtn">All Cases</button>
+            <div class="slider-content-main-div">
+                <p class="slider-top-subheading">My work philosophy</p>
+                <h2 class="slider-main-heading">Creative chaos is <br> encouraged and <br> research is required.</h2>
+                <button class="slider-main-button">All Cases</button>
             </div>
 
             <!-- Right section: Slider Cards content -->
-            <div class="slider-card-wrapper">
-                <div class="slider-track" id="sliderTrack">
-                    <div class="slider-card-item">
-                        <div class="case-card">
-                            <p class="slider-subheading">DeptxJustdiggit</p>
-                            <h3 class="slider-heading">A sustainable initiative combined with digital innovations</h3>
-                            <div class="slider-btn-group">
-                                <button class="sliderBtn">Strategy</button>
-                                <button class="sliderBtn">Content marketing</button>
-                                <button class="sliderBtn">Branding</button>
+            <div class="lead-slider-card-wrapper">
+                <div class="slider-conent-track" id="sliderContentTrack">
+                    <div class="slider-card-box-body">
+                        <div class="case-study-card-div">
+                            <p class="slider-box-sub-heading">DeptxJustdiggit</p>
+                            <h3 class="slider-box-main-heading">A sustainable initiative combined with digital innovations</h3>
+                            <div class="slider-box-btn-group">
+                                <button class="slider-box-Btn">Strategy</button>
+                                <button class="slider-box-Btn">Content marketing</button>
+                                <button class="slider-box-Btn">Branding</button>
                             </div>
                         </div>
                     </div>
-                    <div class="slider-card-item">
-                        <div class="case-card">
-                            <p class="slider-subheading">New Project 1</p>
-                            <h3 class="slider-heading">Another creative project for innovation</h3>
-                            <div class="slider-btn-group">
-                                <button class="sliderBtn">Strategy</button>
-                                <button class="sliderBtn">Content marketing</button>
-                                <button class="sliderBtn">Branding</button>
+                    <div class="slider-card-box-body">
+                        <div class="case-study-card-div">
+                            <p class="slider-box-sub-heading">New Project 1</p>
+                            <h3 class="slider-box-main-heading">Another creative project for innovation</h3>
+                            <div class="slider-box-btn-group">
+                                <button class="slider-box-Btn">Strategy</button>
+                                <button class="slider-box-Btn">Content marketing</button>
+                                <button class="slider-box-Btn">Branding</button>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="slider-card-item">
-                        <div class="case-card">
-                            <p class="slider-subheading">New Project 3</p>
-                            <h3 class="slider-heading">Creative solutions in the modern era</h3>
-                            <div class="slider-btn-group">
-                                <button class="sliderBtn">Strategy</button>
-                                <button class="sliderBtn">Content marketing</button>
-                                <button class="sliderBtn">Branding</button>
+                    <div class="slider-card-box-body">
+                        <div class="case-study-card-div">
+                            <p class="slider-box-sub-heading">New Project 3</p>
+                            <h3 class="slider-box-main-heading">Creative solutions in the modern era</h3>
+                            <div class="slider-box-btn-group">
+                                <button class="slider-box-Btn">Strategy</button>
+                                <button class="slider-box-Btn">Content marketing</button>
+                                <button class="slider-box-Btn">Branding</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="slider-controler">
+                <div class="slider-bottom-controler-box">
                     <button onclick="handlePrevBtn()" class="prevBtn"><</button>
                     <button onclick="handleNextBtn()" class="nextBtn">></button>
                 </div>
@@ -247,22 +247,22 @@
 
     <script>
         let currentIndex = 0;
-        const sliderTrack = document.getElementById('sliderTrack');
-        const sliderItems = document.querySelectorAll('.slider-card-item');
+        const sliderContentTrack = document.getElementById('sliderContentTrack');
+        const sliderItems = document.querySelectorAll('.slider-card-box-body');
         const totalItems = sliderItems.length;
         const slideWidth = sliderItems[0].offsetWidth + 20; // including gap of 20px
 
         function handleNextBtn() {
             if (currentIndex < totalItems - 1) {
                 currentIndex++;
-                sliderTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                sliderContentTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             }
         }
 
         function handlePrevBtn() {
             if (currentIndex > 0) {
                 currentIndex--;
-                sliderTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                sliderContentTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             }
         }
     </script>
