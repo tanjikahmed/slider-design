@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .emailbox {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-button {
+          color: #F2502C;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 16px;
+          background-color: #ffffff;
+        }
+      
+        /* Pop-up notification styling */
+        .popup-notification {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+          z-index: 1000;
+        }
+      
+        /* Show the notification */
+        .show-notification {
+          opacity: 1;
+        }
+      </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"  />
+
+</head>
+<body>
+    
+    <!-- Email Box and Pop-up Notification Container -->
+    <div class="emailbox">
+        <h3><span id="email">lipsum@meeteileen.me</span></h3>
+        <button class="copy-button" onclick="copyEmail()">Copy Email &nbsp; &nbsp; <i class="fa-regular fa-copy"></i></button>
+    </div>
+    <div id="popupNotification" class="popup-notification">Email copied to clipboard!</div>
+
+    <script>
+      function copyEmail() {
+        const emailText = document.getElementById('email').textContent;
+        navigator.clipboard.writeText(emailText).then(() => {
+          showPopupNotification(); // Show pop-up after copying
+        }).catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+      }
+
+      function showPopupNotification() {
+        const popup = document.getElementById('popupNotification');
+        popup.classList.add('show-notification'); // Show the pop-up
+
+        // Hide the pop-up after 3 seconds
+        setTimeout(() => {
+          popup.classList.remove('show-notification');
+        }, 3000);
+      }
+    </script>
+
+</body>
+</html>

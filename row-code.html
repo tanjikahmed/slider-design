@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <style>
         body {
@@ -11,11 +12,12 @@
             padding: 0;
             background: #3a1f44;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth !important;
         }
 
         /* main-content-section */
         .main-content-section {
-            height: 90vh;
+            height: auto;
             margin: 0 auto;
             color: #fff;
             overflow: hidden;
@@ -27,13 +29,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 60px;
             height: 100%;
         }
 
         .slider-content-main-div {
             color: #fff;
             width: 50%;
+            margin-bottom: 30px !important;
         }
 
         .lead-slider-card-wrapper {
@@ -58,8 +61,8 @@
         .slider-main-button {
             background: #C2E812;
             color: #000;
-            padding: 14px 24px;
-            font-weight: 400;
+            padding: 13px 45px;
+            font-weight: 500 !important;
         }
 
         /* Slider track */
@@ -77,10 +80,11 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            background-size: cover;
-            background-position: center;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
             padding: 20px;
-            background: linear-gradient(#0000003d, #0000003d), url(https://images.pexels.com/photos/1887624/pexels-photo-1887624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background: linear-gradient(#00000027, #00000027), url(https://static1.squarespace.com/static/6276ded4bee87505f454bcdd/t/670a0541877c8130defe11a7/1728709954966/image+4.png);
         }
 
         .case-study-card-div .slider-box-sub-heading {
@@ -88,6 +92,7 @@
             font-family: Satoshi;
             font-size: 16px;
             font-weight: 500;
+            margin-bottom: -20px;
         }
 
         .case-study-card-div .slider-box-main-heading {
@@ -96,7 +101,8 @@
             font-size: 32px;
             font-style: normal;
             font-weight: 400;
-            padding-right: 40px;
+            padding: 0px 45px 0px 0px;
+            line-height: 40px !important;
         }
 
         .case-study-card-div .slider-box-btn-group {
@@ -130,28 +136,44 @@
         }
 
         button:hover {
-            background-color: #0088cc;
+            background-color: #b5da11 !important;
         }
 
         .nextBtn, .prevBtn {
-            padding: 15px 20px;
+            /* padding: 15px 20px; */
             font-size: 20px;
             border-radius: 100%;
             background-color: #F2502C;
             text-align: center;
         }
 
+         /* Alert styling */
+    .custom-alert {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        z-index: 1000;
+    }
+
+    /* Show the alert */
+    .show-alert {
+        opacity: 1;
+    }
+
         /* Responsive styles for small devices */
         @media (max-width: 768px) {
-/* main-content-section */
-.main-content-section {
-            height: 100% !important;
-        }
+            .main-content-section {
+                height: 100%;
+                padding: 5%;
+            }
 
-        .slider-conent-track {
-            gap: 40px !important;
-        
-        }
             .section-wrapper-all {
                 flex-direction: column;
                 gap: 20px;
@@ -159,7 +181,6 @@
 
             .slider-content-main-div {
                 width: 100%;
-                text-align: center;
             }
 
             .slider-main-heading {
@@ -169,6 +190,10 @@
 
             .lead-slider-card-wrapper {
                 width: 100%;
+            }
+
+            .slider-conent-track {
+                gap: 20px;
             }
 
             .case-study-card-div {
@@ -185,6 +210,30 @@
                 padding: 10px 20px;
             }
         }
+
+        /* Mobile-specific styles */
+        @media (max-width: 576px) {
+            .slider-conent-track {
+                gap: 20px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .case-study-card-div {
+                width: 100vw;
+                height: 400px;
+                margin: 0;
+            }
+
+            .slider-bottom-controler-box {
+                justify-content: center;
+                gap: 30px;
+                margin-right: 0;
+            }
+
+            /* .slider-main-button {
+                padding: 8px 16px;
+            } */
+        }
     </style>
 </head>
 
@@ -196,6 +245,12 @@
                 <p class="slider-top-subheading">My work philosophy</p>
                 <h2 class="slider-main-heading">Creative chaos is <br> encouraged and <br> research is required.</h2>
                 <button class="slider-main-button">All Cases</button>
+
+                <!-- Button to trigger the alert -->
+<button onclick="showCustomAlert('This is your custom alert message!')">Show Alert</button>
+
+<!-- Alert container -->
+<div id="customAlert" class="custom-alert">This is a custom alert!</div>
             </div>
 
             <!-- Right section: Slider Cards content -->
@@ -238,8 +293,8 @@
                 </div>
                 
                 <div class="slider-bottom-controler-box">
-                    <button onclick="handlePrevBtn()" class="prevBtn"><</button>
-                    <button onclick="handleNextBtn()" class="nextBtn">></button>
+                    <button onclick="handlePrevBtn()" class="prevBtn"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button onclick="handleNextBtn()" class="nextBtn"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -265,7 +320,67 @@
                 sliderContentTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             }
         }
+
+        // Dynamically update slideWidth on resize for mobile responsiveness
+        window.addEventListener('resize', () => {
+            const newSlideWidth = sliderItems[0].offsetWidth + 20;
+            sliderContentTrack.style.transform = `translateX(-${newSlideWidth * currentIndex}px)`;
+        });
     </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+<script>
+    function showCustomAlert(message) {
+    const alertBox = document.getElementById('customAlert');
+    alertBox.textContent = message; // Set the alert message
+    alertBox.classList.add('show-alert'); // Show the alert
+
+    // Hide the alert after 1 second
+    setTimeout(() => {
+        alertBox.classList.remove('show-alert');
+    }, 1000);
+}
+
+
+</script>
 
 </body>
 </html>
